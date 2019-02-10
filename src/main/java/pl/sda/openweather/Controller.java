@@ -36,9 +36,7 @@ public class Controller implements Initializable {
         Weather weather = null;
         try {
             URL urltmp = new URL( "http://api.apixu.com/v1/current.json?key=c58fd33d79104bb385190240191002&q="+city);
-            objectMapper.
             weather = objectMapper.readValue(urltmp, Weather.class);
-
             temperature_lab.setTextFill(Color.web("000000"));
             temperature_lab.setFont(Font.font("Arial Bold", FontWeight.BOLD,15));
             temperature_lab.setText("Temperature in city "+ city + " : " + weather.getCurrent().getTemp_c());
