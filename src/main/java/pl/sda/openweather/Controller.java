@@ -16,35 +16,40 @@ import pl.sda.openweather.model.Weather;
 
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.text.Normalizer;
 import java.util.ResourceBundle;
-
 
 public class Controller implements Initializable {
     @FXML
     private Label temperature_lab;
     @FXML
-    private TextField  cityText;
+    private TextField cityText;
     @FXML
     private ImageView iconView;
+
     @FXML
 
-    public void btnPress(ActionEvent actionEvent)
-    {
+    public void btnPress(ActionEvent actionEvent) {
         ObjectMapper objectMapper = new ObjectMapper();
         String city = cityText.getText();
-
         Weather weather = null;
         try {
-            URL urltmp = new URL( "http://api.apixu.com/v1/current.json?key=c58fd33d79104bb385190240191002&q="+city);
+            String urlNormalized = "http://api.apixu.com/v1/current.json?key=c58fd33d79104bb385190240191002&q="
+                    + URLEncoder.encode(city,"UTF-8");
+            URL urltmp = new URL(urlNormalized);
             weather = objectMapper.readValue(urltmp, Weather.class);
             temperature_lab.setTextFill(Color.web("000000"));
-            temperature_lab.setFont(Font.font("Arial Bold", FontWeight.BOLD,15));
-            temperature_lab.setText("Temperature in city "+ city + " : " + weather.getCurrent().getTemp_c());
-            iconView.setImage(new Image("http:"+weather.getCurrent().getCondition().getIcon()));
+            temperature_lab.setFont(Font.font("Arial Bold", FontWeight.BOLD, 15));
+            temperature_lab.setText("Temperature in "
+                    + weather.getLocation().getCountry()
+                    + "\n city " + city + " : "
+                    + weather.getCurrent().getTemp_c());
+            iconView.setImage(new Image("http:" + weather.getCurrent().getCondition().getIcon()));
+
         } catch (IOException e) {
             temperature_lab.setTextFill(Color.web("FF0000"));
-            temperature_lab.setAlignment(Pos.BASELINE_CENTER);
-            temperature_lab.setFont(Font.font("Arial Bold", FontWeight.BOLD,15));
+            temperature_lab.setFont(Font.font("Arial Bold", FontWeight.BOLD, 15));
             temperature_lab.setText("Nie można pobrać informacji o pogodzie!!");
             iconView.setImage(null);
         }
@@ -52,6 +57,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        temperature_lab.setAlignment(Pos.CENTER);
 
     }
 }
