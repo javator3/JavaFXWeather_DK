@@ -23,7 +23,7 @@ public class Current {
     private double vis_miles;
     private double uv;
 
-    public void Current(){
+    public void Current() {
 
     }
 

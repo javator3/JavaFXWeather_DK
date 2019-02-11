@@ -1,4 +1,4 @@
-package pl.sda.openweather;
+package pl.sda.openweather.WindowsControllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

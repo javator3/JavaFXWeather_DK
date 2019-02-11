@@ -16,7 +16,7 @@ public class WeatherService extends IOException {
                     + URLEncoder.encode(city, "UTF-8");
             URL finalUrl = new URL(urlNormalized);
             weather = objectMapper.readValue(finalUrl, Weather.class);
-        }catch (IOException e){
+        } catch (IOException e) {
             throw new WeatherServiceException("Cannot take Weather Details!");
         }
         return weather;

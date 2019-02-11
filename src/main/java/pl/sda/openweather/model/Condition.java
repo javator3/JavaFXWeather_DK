@@ -5,7 +5,7 @@ public class Condition {
     private String icon;
     private int code;
 
-    public void Condition(){
+    public void Condition() {
 
     }
 

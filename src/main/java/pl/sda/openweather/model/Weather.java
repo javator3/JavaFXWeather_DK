@@ -4,7 +4,7 @@ public class Weather {
     private Location location;
     private Current current;
 
-    public void Weather(){
+    public void Weather() {
 
     }
 
