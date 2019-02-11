@@ -78,17 +78,4 @@ public class Location {
         this.localtime = localtime;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" +
-                "name='" + name + '\'' +
-                ", region='" + region + '\'' +
-                ", country='" + country + '\'' +
-                ", lat=" + lat +
-                ", lon=" + lon +
-                ", tz_id='" + tz_id + '\'' +
-                ", localtime_epoch=" + localtime_epoch +
-                ", localtime='" + localtime + '\'' +
-                '}';
-    }
 }

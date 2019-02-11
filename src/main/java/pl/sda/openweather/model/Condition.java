@@ -33,12 +33,4 @@ public class Condition {
         this.code = code;
     }
 
-    @Override
-    public String toString() {
-        return "Condition{" +
-                "text='" + text + '\'' +
-                ", icon='" + icon + '\'' +
-                ", code=" + code +
-                '}';
-    }
 }
