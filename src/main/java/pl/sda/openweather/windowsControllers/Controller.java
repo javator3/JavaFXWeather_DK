@@ -26,12 +26,13 @@ public class Controller implements Initializable {
     private TextField cityText;
     @FXML
     private ImageView weatherIcon;
+    WeatherService weatherService;
 
     @FXML
 
     public void btnPress(ActionEvent actionEvent) {
         try {
-            Weather weather = WeatherService.getWeatherForCity(cityText.getText());
+            Weather weather = weatherService.getWeatherForCity(cityText.getText());
             temperature_lab.setTextFill(Color.web("000000"));
             temperature_lab.setText("Temperature in "
                     + weather.getLocation().getCountry()
@@ -49,5 +50,6 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         temperature_lab.setAlignment(Pos.CENTER);
         temperature_lab.setFont(Font.font("Arial Bold", FontWeight.BOLD, 15));
+        weatherService = new WeatherService("http://api.apixu.com/v1/current.json","c58fd33d79104bb385190240191002");
     }
 }
