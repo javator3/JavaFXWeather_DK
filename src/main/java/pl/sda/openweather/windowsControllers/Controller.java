@@ -30,10 +30,8 @@ public class Controller implements Initializable {
     @FXML
 
     public void btnPress(ActionEvent actionEvent) {
-        WeatherService weatherService = new WeatherService();
-
         try {
-            Weather weather = weatherService.getWeatherForCity(cityText.getText());
+            Weather weather = WeatherService.getWeatherForCity(cityText.getText());
             temperature_lab.setTextFill(Color.web("000000"));
             temperature_lab.setText("Temperature in "
                     + weather.getLocation().getCountry()
@@ -51,6 +49,5 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         temperature_lab.setAlignment(Pos.CENTER);
         temperature_lab.setFont(Font.font("Arial Bold", FontWeight.BOLD, 15));
-
     }
 }

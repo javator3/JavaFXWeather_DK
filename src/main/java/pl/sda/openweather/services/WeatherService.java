@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class WeatherService extends IOException {
-    public Weather getWeatherForCity(String city) throws WeatherServiceException {
+public class  WeatherService extends IOException {
+    public static Weather getWeatherForCity(String city) throws WeatherServiceException {
         ObjectMapper objectMapper = new ObjectMapper();
         Weather weather;
         try {
