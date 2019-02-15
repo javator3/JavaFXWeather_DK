@@ -26,7 +26,7 @@ public class Controller implements Initializable {
     private TextField cityText;
     @FXML
     private ImageView weatherIcon;
-    WeatherService weatherService;
+    private WeatherService weatherService;
 
     @FXML
 
